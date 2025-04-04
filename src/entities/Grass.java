@@ -1,5 +1,6 @@
 package entities;
 
+import util.Coordinates;
 import util.Sprite;
 
 public class Grass extends  Entity {

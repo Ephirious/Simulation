@@ -29,4 +29,12 @@ public class Coordinates {
     public int hashCode() {
         return Objects.hash(row, column);
     }
+
+    @Override
+    public String toString() {
+        return "Coordinates{" +
+                "row=" + row +
+                ", column=" + column +
+                '}';
+    }
 }

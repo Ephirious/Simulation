@@ -11,7 +11,6 @@ public enum Damage {
 
     private final int highestDamageBound;
 
-
     Damage(int highestDamageBound) {
         this.highestDamageBound = highestDamageBound;
     }

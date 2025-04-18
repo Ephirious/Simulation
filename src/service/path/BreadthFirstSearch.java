@@ -33,7 +33,7 @@ public class BreadthFirstSearch extends PathFinder {
                 continue;
 
             List<Coordinates> neighboringCoordinates = CoordinatesShift.getNeighboringCoordinates(current);
-            neighboringCoordinates.removeIf(coordinates -> !validator.isValid(coordinates));
+            neighboringCoordinates.removeIf(coordinates -> !map.isValid(coordinates));
 
             for (Coordinates neighboring : neighboringCoordinates)
                 if (!isVisited(neighboring)) {

@@ -11,7 +11,6 @@ public enum Speed {
 
     private final int speed;
 
-
     Speed(int speed) {
         this.speed = speed;
     }

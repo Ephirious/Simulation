@@ -21,7 +21,9 @@ public class Coordinates {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Coordinates that)) return false;
+        if (!(o instanceof Coordinates that))  {
+            return false;
+        }
         return row == that.row && column == that.column;
     }
 

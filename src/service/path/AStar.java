@@ -2,7 +2,6 @@ package service.path;
 
 import coordinates.Coordinates;
 import coordinates.CoordinatesShift;
-import entities.Help;
 import service.SimulationMap;
 
 import java.util.*;
@@ -16,7 +15,7 @@ public class AStar extends PathFinder {
     public AStar(SimulationMap map) {
         super(map);
 
-        capacity = (map.getMaxRow() - 1) * (map.getMaxColumn() - 1);
+        capacity = (map.getWidth() - 1) * (map.getHeight() - 1);
         costsForCoordinates = new HashMap<>();
     }
 
@@ -37,12 +36,12 @@ public class AStar extends PathFinder {
                 break;
             }
 
-            if (map.hasEntity(current) && !current.equals(source) && map.getEntity(current).getClass() != Help.class) {
+            if (map.hasEntity(current) && !current.equals(source)) {
                 continue;
             }
 
             List<Coordinates> neighboringCoordinates = CoordinatesShift.getNeighboringCoordinates(current);
-            neighboringCoordinates.removeIf(checkedCoordinates -> !validator.isValid(checkedCoordinates));
+            neighboringCoordinates.removeIf(checkedCoordinates -> !map.isValid(checkedCoordinates));
 
             for (Coordinates neighboring : neighboringCoordinates) {
                 int newCost = costsForCoordinates.get(current) + COST_FOR_MOVE;
